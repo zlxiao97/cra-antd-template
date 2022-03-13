@@ -1,3 +1,5 @@
+export const homePath = '/dashboard'
+
 export default [
   {
     name: "Dashboard",
