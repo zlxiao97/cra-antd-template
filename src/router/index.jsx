@@ -1,13 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "../App";
-import Dashboard from "../pages/Dashboard";
+import routes from "../config/routes";
+import { createRoutes } from "./utils/createRoutes";
 
 export default () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="dashboard" element={<Dashboard />}></Route>
+          {createRoutes(routes)}
         </Route>
       </Routes>
     </BrowserRouter>
