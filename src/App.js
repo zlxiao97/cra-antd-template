@@ -1,9 +1,9 @@
 import { Layout } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
-import Menu from "./layout/Menu";
+import Menu from "@/layout/Menu";
 import "./App.css";
-import Footer from "./layout/Footer";
-import { homePath } from "./config/routes";
+import Footer from "@/layout/Footer";
+import { homePath } from "@/config/routes";
 
 const { Header, Content } = Layout;
 
