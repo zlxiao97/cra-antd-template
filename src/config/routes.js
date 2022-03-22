@@ -4,7 +4,8 @@ export default [
   {
     name: "Dashboard",
     path: "dashboard",
-    component: require("../pages/Dashboard").default
+    component: require("../pages/Dashboard").default,
+    // hideInMenu:true
   },
   {
     name: "Page1",
