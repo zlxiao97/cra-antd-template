@@ -1,13 +1,21 @@
 import { Layout } from "antd";
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Menu from "@/layout/Menu";
 import "./App.css";
 import Footer from "@/layout/Footer";
 import { homePath } from "@/config/routes";
+import { useEffect } from "react";
 
 const { Header, Content } = Layout;
 
 export default (props) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === "/") {
+      navigate(homePath, { replace: true });
+    }
+  }, []);
   return (
     <>
       <Layout>
@@ -22,7 +30,6 @@ export default (props) => {
         </Content>
         <Footer />
       </Layout>
-      <Navigate replace to={homePath} />
     </>
   );
 };
