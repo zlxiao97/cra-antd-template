@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import App from "../App";
-import routes from "../config/routes";
+import App from "@/App";
+import routes from "@/config/routes";
 import { createRoutes } from "./utils/createRoutes";
 
 export default () => {

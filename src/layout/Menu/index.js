@@ -1,5 +1,5 @@
 import { Menu } from "antd";
-import routes from "../../config/routes";
+import routes from "@/config/routes";
 import { createMenuItem } from "./utils/createMenuItem";
 
 export default () => {
