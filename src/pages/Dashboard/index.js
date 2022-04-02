@@ -1,7 +1,12 @@
+import PageLayout from "@/components/PageLayout";
+import layouts from './config/layouts.json'
+
 export default () => {
   return (
-    <>
-      <h1>dashboard</h1>
-    </>
+    <PageLayout layouts={layouts}>
+      <div key="a">1</div>
+      <div key="b">2</div>
+      <div key="c">3</div>
+    </PageLayout>
   );
 };
