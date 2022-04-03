@@ -1,5 +1,6 @@
 const path = require(`path`);
 const CracoLessPlugin = require("craco-less");
+const cracoPluginStyleResourcesLoader = require("craco-plugin-style-resources-loader");
 
 module.exports = {
   webpack: {
@@ -17,6 +18,13 @@ module.exports = {
             javascriptEnabled: true
           }
         }
+      }
+    },
+    {
+      plugin: cracoPluginStyleResourcesLoader,
+      options: {
+        patterns: path.join(__dirname, "src/theme/main.less"),
+        styleType: "less"
       }
     }
   ]

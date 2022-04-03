@@ -1,7 +1,8 @@
-.layout{
-  & > div{
-    min-height: 100%;
-    // dev
-    border: 1px dotted red;
+.layout {
+  :global {
+    .react-grid-item {
+      // dev
+      border: 1px dotted red;
+    }
   }
 }
