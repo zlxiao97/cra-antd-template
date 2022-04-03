@@ -1,5 +1,5 @@
 import { Responsive, WidthProvider } from "react-grid-layout";
-import styles from './index.module.less'
+import styles from "./index.module.less";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -10,6 +10,9 @@ export default (props) => {
     isResizable: false,
     width: { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
     cols: { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
+    // 以下配置根据项目决定
+    rowHeight: 100,
+    margin: [20, 20]
   };
   return (
     <ResponsiveGridLayout {...defaultProps} layouts={props.layouts}>
