@@ -19,13 +19,13 @@ module.exports = {
           }
         }
       }
-    },
-    {
-      plugin: cracoPluginStyleResourcesLoader,
-      options: {
-        patterns: path.join(__dirname, "src/theme/main.less"),
-        styleType: "less"
-      }
     }
+    // {
+    //   plugin: cracoPluginStyleResourcesLoader,
+    //   options: {
+    //     patterns: path.join(__dirname, "src/theme/main.less"),
+    //     styleType: "less"
+    //   }
+    // }
   ]
 };
