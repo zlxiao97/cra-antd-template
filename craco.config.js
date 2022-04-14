@@ -23,7 +23,11 @@ module.exports = {
     {
       plugin: cracoPluginStyleResourcesLoader,
       options: {
-        patterns: path.join(__dirname, "src/theme/main.less"),
+        patterns: [
+          path.join(__dirname, "src/theme/base/*.less"),
+          path.join(__dirname, "src/theme/components/*.less"),
+          path.join(__dirname, "src/theme/utils/*.less")
+        ],
         styleType: "less"
       }
     }
