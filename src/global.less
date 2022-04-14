@@ -1,4 +1,8 @@
-@import './theme/main.less';
-@import "~antd/dist/antd.less";
+// 引入顺序很重要
+@root-entry-name: default;
+@import "~antd/lib/style/core/index";
+@import "~antd/lib/style/components";
+@import "@/theme/main";
+
 @import '~react-grid-layout/css/styles.css';
 @import '~react-resizable/css/styles.css';
