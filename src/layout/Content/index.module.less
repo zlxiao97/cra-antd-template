@@ -1,9 +1,9 @@
-
-
 .siteLayout {
   &__content {
     max-width: @screen-1k;
-    min-height: calc(100vh - @layout-header-height);
+    min-height: calc(
+      100vh - @layout-header-height - @layout-footer-padding-y * 2
+    );
     margin: 0 auto;
   }
 }
