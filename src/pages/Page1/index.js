@@ -1,3 +1,4 @@
-export default () => {
-  return <h1>page1</h1>;
-};
+import StatefulHOC from "./StatefulHOC";
+import Stateless from "./Stateless";
+
+export default StatefulHOC(Stateless);
