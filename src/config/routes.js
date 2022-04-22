@@ -1,12 +1,13 @@
+import { getRoutesLeaf } from "@/utils";
 // import { Outlet } from "react-router-dom";
 export const homePath = "/dashboard";
 export const loginPath = "/login";
 
-export default [
+const routes = [
   {
     name: "Dashboard",
     path: "dashboard",
-    component: require("../pages/Dashboard").default,
+    component: require("../pages/Dashboard").default
     // hideInMenu:true
     // component: Outlet, // 如果有子路由，父路由对应组件必须包含Outlet，否则无法显示子路由，如果不传component，则默认为Outlet
     // children: [
@@ -23,3 +24,7 @@ export default [
     component: require("../pages/Page1").default
   }
 ];
+
+export default routes;
+
+export const getLeafNodes = () => getRoutesLeaf(routes);
