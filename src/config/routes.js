@@ -1,5 +1,6 @@
 // import { Outlet } from "react-router-dom";
 export const homePath = "/dashboard";
+export const loginPath = "/login";
 
 export default [
   {
