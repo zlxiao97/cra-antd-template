@@ -1,3 +1,5 @@
+import { ConfigProvider } from "antd";
+import zh_CN from "antd/lib/locale/zh_CN";
 import { homePath } from "@/config/routes";
 import { ThemeProvider } from "@/context/theme";
 import { ModelProvider } from "@/context/model";
@@ -9,9 +11,11 @@ export default () => {
   useHomePage(homePath);
   return (
     <ModelProvider>
-      <ThemeProvider>
-        <Layout />;
-      </ThemeProvider>
+      <ConfigProvider locale={zh_CN}>
+        <ThemeProvider>
+          <Layout />;
+        </ThemeProvider>
+      </ConfigProvider>
     </ModelProvider>
   );
 };
