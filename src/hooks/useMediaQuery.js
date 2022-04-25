@@ -12,6 +12,7 @@ export default (_mediaQueryString) => {
     const handleResize = () => {
       setMatches(window.matchMedia(mediaQueryString).matches);
     };
+    handleResize();
     window.addEventListener("load", handleResize);
     window.addEventListener("resize", handleResize);
     return () => {
