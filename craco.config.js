@@ -18,7 +18,11 @@ module.exports = {
           http: false,
           https: false,
           stream: false,
-          crypto: false
+          crypto: false,
+          util: false,
+          url: false,
+          assert: false,
+          querystring: false
         }
       }
     }
