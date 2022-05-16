@@ -6,6 +6,21 @@ module.exports = {
   webpack: {
     alias: {
       "@": path.resolve(__dirname, "./src")
+    },
+    configure: {
+      resolve: {
+        fallback: {
+          fs: false,
+          tls: false,
+          net: false,
+          path: false,
+          zlib: false,
+          http: false,
+          https: false,
+          stream: false,
+          crypto: false
+        }
+      }
     }
   },
   plugins: [
