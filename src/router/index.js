@@ -3,7 +3,7 @@ import App from "@/App";
 import routes from "@/config/routes";
 import { createRoutes } from "./utils/createRoutes";
 
-export default () => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -14,3 +14,5 @@ export default () => {
     </BrowserRouter>
   );
 };
+
+export default Router;

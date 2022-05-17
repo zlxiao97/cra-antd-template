@@ -1,4 +1,4 @@
-import PageLayout from "@/components/PageLayout";
+module.exports = (data) => `import PageLayout from "@/components/PageLayout";
 import layouts from "./config/layouts.json";
 
 const Stateless = () => {
@@ -6,3 +6,4 @@ const Stateless = () => {
 };
 
 export default Stateless;
+`;

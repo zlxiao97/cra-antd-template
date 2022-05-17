@@ -1,4 +1,6 @@
 import StatefulHOC from "./StatefulHOC";
 import Stateless from "./Stateless";
 
-export default StatefulHOC(Stateless);
+const Dashboard = StatefulHOC(Stateless);
+
+export default Dashboard;

@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default (homePath) => {
+const useHomePage = (homePath) => {
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
     if (location.pathname === "/") {
       navigate(homePath, { replace: true });
     }
-  }, [homePath]);
+  }, [homePath, location.pathname, navigate]);
 };
+
+export default useHomePage;

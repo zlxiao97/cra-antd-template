@@ -4,7 +4,7 @@ import styles from "./index.module.less";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-export default (props) => {
+const PageLayout = (props) => {
   const defaultProps = {
     className: classNames({
       [styles.layout]: true,
@@ -24,3 +24,5 @@ export default (props) => {
     </ResponsiveGridLayout>
   );
 };
+
+export default PageLayout;

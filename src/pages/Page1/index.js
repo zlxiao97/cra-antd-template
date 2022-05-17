@@ -1,4 +1,6 @@
 import StatefulHOC from "./StatefulHOC";
 import Stateless from "./Stateless";
 
-export default StatefulHOC(Stateless);
+const Page1 = StatefulHOC(Stateless);
+
+export default Page1;

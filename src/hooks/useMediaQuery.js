@@ -1,7 +1,7 @@
 import { useTheme } from "@/context/theme";
 import { useEffect, useState } from "react";
 
-export default (_mediaQueryString) => {
+const useMediaQuery = (_mediaQueryString) => {
   const theme = useTheme();
   const [matches, setMatches] = useState(false);
   let mediaQueryString = _mediaQueryString;
@@ -22,3 +22,5 @@ export default (_mediaQueryString) => {
   }, [mediaQueryString]);
   return matches;
 };
+
+export default useMediaQuery;
