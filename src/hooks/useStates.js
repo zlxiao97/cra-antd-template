@@ -1,5 +1,5 @@
-import { camelCase, lowerFirst, flow } from "lodash";
-import { useCallback, useReducer } from "react";
+import { lowerFirst, flow } from "lodash";
+import { useCallback, useReducer, useRef } from "react";
 
 const isKeyInState = (state) => (key) => {
   return Object.keys(state).includes(key);
@@ -15,7 +15,7 @@ const isSetterAction = (type, state) =>
 
 const nexTick = (func) => setTimeout(func, 0);
 
-export default (reducer, initValues) => {
+const useStates = (reducer, initValues) => {
   // 自动处理 setXXX action
   const _reducer = useCallback(
     (state, action = {}) => {
@@ -35,7 +35,7 @@ export default (reducer, initValues) => {
   const [state, _dispatch] = useReducer(_reducer, initValues);
 
   // 自动在payload中带上dispatch，便于action互相调用
-  const dispatch = (action = {}) => {
+  const dispatchRef = useRef((action = {}) => {
     const { type = "", payload = {} } = action;
     if (
       !isSetterAction(type, state) &&
@@ -46,7 +46,7 @@ export default (reducer, initValues) => {
         type,
         payload: {
           ...payload,
-          dispatch
+          dispatch: dispatchRef.current
         }
       });
     } else {
@@ -56,6 +56,8 @@ export default (reducer, initValues) => {
         _dispatch(action);
       });
     }
-  };
-  return [state, dispatch];
+  });
+  return [state, dispatchRef.current];
 };
+
+export default useStates;

@@ -1,11 +1,13 @@
-import { Menu } from "antd";
+import { Menu as AntdMenu } from "antd";
 import routes from "@/config/routes";
 import { createMenuItem } from "./utils/createMenuItem";
 
-export default () => {
+const Menu = () => {
   return (
-    <Menu theme="dark" mode="horizontal">
+    <AntdMenu theme="dark" mode="horizontal">
       {routes.map(createMenuItem)}
-    </Menu>
+    </AntdMenu>
   );
 };
+
+export default Menu;

@@ -1,8 +1,10 @@
 import { Layout } from "antd";
-import styles from './index.module.less'
+import styles from "./index.module.less";
 
-const { Footer } = Layout;
+const { Footer: LayoutFooter } = Layout;
 
-export default () => {
-  return <Footer className={styles.footer} ></Footer>;
+const Footer = () => {
+  return <LayoutFooter className={styles.footer}></LayoutFooter>;
 };
+
+export default Footer;

@@ -1,6 +1,6 @@
 import { fetchUserInfo } from "@/services/user";
 
-export default ({ state, payload }) => {
+const init = ({ state, payload }) => {
   const { dispatch } = payload;
   fetchUserInfo().then((res) => {
     dispatch({
@@ -10,3 +10,5 @@ export default ({ state, payload }) => {
   });
   return state;
 };
+
+export default init;

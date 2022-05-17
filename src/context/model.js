@@ -10,7 +10,7 @@ export const ModelProvider = (props) => {
   const [state, dispatch] = useStates(reducer, initialState);
   useEffect(() => {
     dispatch({ type: "init" });
-  }, []);
+  }, [dispatch]);
   return (
     <ModelContext.Provider value={[state, dispatch]}>
       {props.children}

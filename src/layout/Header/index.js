@@ -2,13 +2,15 @@ import { Layout } from "antd";
 import Logo from "../Logo";
 import Menu from "../Menu";
 
-const { Header } = Layout;
+const { Header: LayoutHeader } = Layout;
 
-export default () => {
+const Header = () => {
   return (
-    <Header>
+    <LayoutHeader>
       <Logo />
       <Menu />
-    </Header>
+    </LayoutHeader>
   );
 };
+
+export default Header;

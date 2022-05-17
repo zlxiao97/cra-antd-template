@@ -1,7 +1,7 @@
 import PageLayout from "@/components/PageLayout";
-import layouts from './config/layouts.json'
+import layouts from "./config/layouts.json";
 
-export default () => {
+const Stateless = () => {
   return (
     <PageLayout layouts={layouts}>
       <div key="a">1</div>
@@ -10,3 +10,5 @@ export default () => {
     </PageLayout>
   );
 };
+
+export default Stateless;

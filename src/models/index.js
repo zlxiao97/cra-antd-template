@@ -5,6 +5,7 @@ export const reducer = (state, action = {}) => {
   switch (type) {
     case "init":
       init({ state, payload });
+      return state;
     default:
       return state;
   }

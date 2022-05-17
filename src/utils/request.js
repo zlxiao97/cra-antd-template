@@ -70,7 +70,9 @@ const fetch = (method) => (url, options) =>
     url
   });
 
-export default {
+const request = {
   get: fetch("GET"),
   post: fetch("POST")
 };
+
+export default request;
