@@ -8,24 +8,16 @@ module.exports = {
       "@": path.resolve(__dirname, "./src")
     },
     configure: (webpackConfig) => {
-      webpackConfig.resolve = {
-        ...webpackConfig.resolve,
-        fallback: {
-          ...webpackConfig.resolve.fallback,
-          fs: false,
-          tls: false,
-          net: false,
-          path: false,
-          zlib: false,
-          http: false,
-          https: false,
-          stream: false,
-          crypto: false,
-          util: false,
-          url: false,
-          assert: false,
-          querystring: false
-        }
+      webpackConfig.resolve.fallback = {
+        path: false,
+        zlib: false,
+        http: false,
+        https: false,
+        stream: false,
+        util: false,
+        url: false,
+        assert: false,
+        querystring: false
       };
       return webpackConfig;
     }
