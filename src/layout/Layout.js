@@ -1,16 +1,18 @@
-import { Layout } from "antd";
+import { Layout as AntdLayout } from "antd";
 import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
 
-export default () => {
+const Layout = () => {
   return (
     <>
-      <Layout>
+      <AntdLayout>
         <Header />
         <Content />
         <Footer />
-      </Layout>
+      </AntdLayout>
     </>
   );
 };
+
+export default Layout;

@@ -1,3 +1,5 @@
-export default (Stateless) => (props) => {
+const StatefulHOC = (Stateless) => (props) => {
   return <Stateless {...props} />;
 };
+
+export default StatefulHOC;

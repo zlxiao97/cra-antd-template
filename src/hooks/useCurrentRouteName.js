@@ -3,7 +3,7 @@ import { useLocation } from "react-router";
 import { getLeafNodes } from "@/config/routes";
 import { get } from "lodash";
 
-export default () => {
+const useCurrentRouteName = () => {
   const location = useLocation();
   const name = useMemo(
     () =>
@@ -16,3 +16,5 @@ export default () => {
   );
   return name;
 };
+
+export default useCurrentRouteName;

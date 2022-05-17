@@ -7,7 +7,7 @@ import Layout from "@/layout/Layout";
 import useHomePage from "@/hooks/useHomePage";
 import "./global.less";
 
-export default () => {
+const App = () => {
   useHomePage(homePath);
   return (
     <ModelProvider>
@@ -19,3 +19,5 @@ export default () => {
     </ModelProvider>
   );
 };
+
+export default App;

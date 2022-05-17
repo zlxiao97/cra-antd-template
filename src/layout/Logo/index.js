@@ -1,5 +1,7 @@
-import styles from './index.module.less'
+import styles from "./index.module.less";
 
-export default () => {
+const Logo = () => {
   return <div className={styles.logo} />;
 };
+
+export default Logo;
