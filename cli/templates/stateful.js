@@ -1,5 +1,7 @@
 module.exports = (data) => `const StatefulHOC = (Stateless) => (props) => {
-  return <Stateless {...props} />;
+  const data = {};
+  const callback = {};
+  return <Stateless {...props} {...data} {...callback} />;
 };
 
 export default StatefulHOC;
