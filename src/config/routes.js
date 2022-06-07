@@ -12,7 +12,7 @@ const routes = [
     // component: Outlet, // 如果有子路由，父路由对应组件必须包含Outlet，否则无法显示子路由，如果不传component，则默认为Outlet
     // children: [
     //   {
-    //     name: "inner",
+    //     name: "Inner",
     //     path: "inner",
     //     component: "pages/Dashboard/Inner"
     //   }
