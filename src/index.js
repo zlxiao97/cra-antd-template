@@ -3,7 +3,10 @@ import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./router";
 
-if (process.env.REACT_APP_MOCK !== "none") {
+if (
+  process.env.NODE_ENV === "development" &&
+  process.env.REACT_APP_MOCK !== "none"
+) {
   require("./mock");
 }
 
