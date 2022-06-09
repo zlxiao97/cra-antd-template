@@ -2,7 +2,7 @@ const { resolve } = require("path");
 const fs = require("fs-extra");
 const chokidar = require("chokidar");
 const { Parser } = require("acorn");
-const { get, debounce } = require("lodash");
+const { get, debounce, capitalize, last } = require("lodash");
 const pageTemplate = require("../templates/page");
 const statefulTemplate = require("../templates/stateful");
 const statelessTemplate = require("../templates/stateless");
@@ -20,7 +20,10 @@ const scaffold = async (name) => {
     fs.mkdirsSync(`${PAGE_DIR}/${name}/StatefulHOC`);
     fs.mkdirsSync(`${PAGE_DIR}/${name}/Stateless`);
     fs.mkdirsSync(`${PAGE_DIR}/${name}/Stateless/config`);
-    fs.outputFileSync(`${PAGE_DIR}/${name}/index.js`, pageTemplate({ name }));
+    fs.outputFileSync(
+      `${PAGE_DIR}/${name}/index.js`,
+      pageTemplate({ name: last(name.split("/")) })
+    );
     fs.outputFileSync(
       `${PAGE_DIR}/${name}/StatefulHOC/index.js`,
       statefulTemplate()
@@ -34,6 +37,35 @@ const scaffold = async (name) => {
       statelessConfigTemplate()
     );
   }
+};
+
+const findInProperties = (route, key) =>
+  get(route, "properties", []).find((item) => get(item, "key.name") === key);
+
+const generate = (routes) => {
+  routes.forEach((route) => {
+    const componentPath = get(
+      findInProperties(route, "component"),
+      "value.value"
+    );
+    if (
+      typeof componentPath === "string" &&
+      componentPath.startsWith("pages/")
+    ) {
+      const name = last(componentPath.split("pages/"))
+        .split("/")
+        .map((str) => capitalize(str))
+        .join("/");
+
+      scaffold(name);
+    }
+
+    const childrenAST = findInProperties(route, "children");
+
+    if (childrenAST) {
+      generate(get(childrenAST, "value.elements", []));
+    }
+  });
 };
 
 const watcher = async () => {
@@ -56,21 +88,7 @@ const watcher = async () => {
       "[0]"
     );
     const routes = get(routesBlock, "declarations[0].init.elements", []);
-    routes.forEach((route) => {
-      const componentPath = get(
-        get(route, "properties", []).find(
-          (item) => get(item, "key.name") === "component"
-        ),
-        "value.value"
-      );
-      if (
-        typeof componentPath === "string" &&
-        componentPath.startsWith("pages/")
-      ) {
-        const name = componentPath.split("pages/")[1];
-        scaffold(name);
-      }
-    });
+    generate(routes);
   } catch (e) {
     console.error(e);
   }
