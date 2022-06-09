@@ -32,25 +32,28 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const { data } = response;
-    switch (data.code) {
-      case "AUTH200003":
-        message.info("请先登录");
-        break;
-      case "AUTH200004":
-        message.info("需要重新登录");
-        break;
-      default:
-        notification.error({
-          message: "错误提示",
-          description: data.message || "接口返回结果异常",
-          duration: null
+    if (!data.success) {
+      switch (data.code) {
+        case "AUTH200003":
+          message.info("请先登录");
+          break;
+        case "AUTH200004":
+          message.info("需要重新登录");
+          break;
+        default:
+          notification.error({
+            message: "错误提示",
+            description: data.message || "接口返回结果异常",
+            duration: null
+          });
+          break;
+      }
+      if (["AUTH200004", "AUTH200003"].includes(data.code)) {
+        delay(3000).then(() => {
+          localStorage.setItem(tokenStorageKey, "");
+          window.location.replace(loginPath);
         });
-        break;
-    }
-    if (["AUTH200004", "AUTH200003"].includes(data.code)) {
-      delay(3000).then(() => {
-        window.location.replace(loginPath);
-      });
+      }
     }
     return data;
   },

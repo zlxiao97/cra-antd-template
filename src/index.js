@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./router";
 
+if (process.env.REACT_APP_MOCK !== "none") {
+  require("./mock");
+}
+
 ReactDOM.render(<Router />, document.getElementById("root"));
 
 // If you want to start measuring performance in your app, pass a function
