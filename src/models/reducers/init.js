@@ -5,7 +5,7 @@ const init = ({ state, payload }) => {
   fetchUserInfo().then((res) => {
     dispatch({
       type: "setUserInfo",
-      payload: res.data
+      payload: res.result
     });
   });
   return state;

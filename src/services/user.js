@@ -1,11 +1,5 @@
-import { delay } from "@/utils";
+import request from "@/utils/request";
 
 export const fetchUserInfo = async () => {
-  await delay();
-  return {
-    success: true,
-    data: {
-      t: Date.now()
-    }
-  };
+  return request.get("/user/info");
 };
