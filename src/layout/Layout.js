@@ -3,12 +3,12 @@ import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
 
-const Layout = () => {
+const Layout = (props) => {
   return (
     <>
       <AntdLayout>
         <Header />
-        <Content />
+        <Content>{props.children}</Content>
         <Footer />
       </AntdLayout>
     </>

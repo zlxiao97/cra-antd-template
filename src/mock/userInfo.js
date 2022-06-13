@@ -4,7 +4,14 @@ export default [
     api: "/user/info",
     method: "get",
     result: {
-      userName: "@first @last"
+      userName: "@first @last",
+      routes: [
+        {
+          name: "Page1",
+          path: "page1",
+          component: "pages/Page1"
+        }
+      ]
     }
   }
 ];

@@ -4,11 +4,11 @@ import styles from "./index.module.less";
 
 const { Content: LayoutContent } = Layout;
 
-const Content = () => {
+const Content = (props) => {
   return (
     <LayoutContent className={styles.siteLayout}>
       <div className={styles.siteLayout__content}>
-        <Outlet />
+        {props.children}
       </div>
     </LayoutContent>
   );
