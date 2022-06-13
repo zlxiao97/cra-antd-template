@@ -1,4 +1,8 @@
 import init from "./reducers/init";
+import config from "@/config/config";
+import routes from "@/config/routes";
+
+const { asyncRoutes } = config;
 
 export const reducer = (state, action = {}) => {
   const { type, payload = {} } = action;
@@ -12,5 +16,6 @@ export const reducer = (state, action = {}) => {
 };
 
 export const initialState = {
-  userInfo: {}
+  userInfo: {},
+  routes: asyncRoutes ? [] : routes
 };
