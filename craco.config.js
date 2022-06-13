@@ -22,6 +22,10 @@ module.exports = {
       return webpackConfig;
     }
   },
+  devServer: (devServerConfig) => {
+    devServerConfig.watchFiles = ["./src/config/**/*.js", "./src/mock/**/*.js"];
+    return devServerConfig;
+  },
   plugins: [
     {
       plugin: CracoLessPlugin,
