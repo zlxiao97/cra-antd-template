@@ -1,5 +1,6 @@
 const config = {
-  asyncRoutes: false
+  asyncRoutes: false,
+  auth: false
 };
 
 export default config;

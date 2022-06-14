@@ -2,8 +2,8 @@ import { message, notification } from "antd";
 import axios from "axios";
 import { get } from "lodash";
 import serviceConfig from "@/config/service";
-import { loginPath } from "@/config/routes";
 import { delay } from ".";
+import logout from "./logout";
 
 const { timeout, apiPrefix, tokenStorageKey, tokenHeaderKey } = serviceConfig;
 
@@ -50,8 +50,7 @@ service.interceptors.response.use(
       }
       if (["AUTH200004", "AUTH200003"].includes(data.code)) {
         delay(3000).then(() => {
-          localStorage.setItem(tokenStorageKey, "");
-          window.location.replace(loginPath);
+          logout()
         });
       }
     }

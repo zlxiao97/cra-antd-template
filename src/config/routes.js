@@ -1,7 +1,6 @@
 import { getRoutesLeaf } from "@/utils";
 // import { Outlet } from "react-router-dom";
 export const homePath = "/dashboard";
-export const loginPath = "/login";
 
 const routes = [
   {
