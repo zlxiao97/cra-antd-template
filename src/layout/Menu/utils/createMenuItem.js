@@ -4,13 +4,7 @@ import { Menu } from "antd";
 const { Item, SubMenu } = Menu;
 
 const createLeafNode = ({ path, name, hideInMenu }) =>
-  hideInMenu ? null : (
-    <Item key={uuidv4()}>
-      <Link key={uuidv4()} to={`/${path}`}>
-        {name}
-      </Link>
-    </Item>
-  );
+  hideInMenu ? null : <Item key={`/${path}`}>{name}</Item>;
 
 const createSubMenu = ({ route, path, name, hideInMenu }) =>
   hideInMenu ? null : (
