@@ -1,14 +1,14 @@
 import PageLayout from "@/components/PageLayout";
 import layouts from "./config/layouts.json";
 
-const Stateless = () => {
+export default ({ ids: { l1, m1, r1, l2, r2 } }) => {
   return (
     <PageLayout layouts={layouts}>
-      <div key="a">1</div>
-      <div key="b">2</div>
-      <div key="c">3</div>
+      <div key="l1" id={l1}></div>
+      <div key="m1" id={m1}></div>
+      <div key="r1" id={r1}></div>
+      <div key="l2" id={l2}></div>
+      <div key="r2" id={r2}></div>
     </PageLayout>
   );
 };
-
-export default Stateless;
