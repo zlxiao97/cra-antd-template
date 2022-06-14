@@ -1,6 +1,13 @@
 // mock数据生成语法：http://mockjs.com/examples.html
 export default [
   {
+    api: "/login",
+    method: "post",
+    result: {
+      token: "@string(32)"
+    }
+  },
+  {
     api: "/user/info",
     method: "get",
     result: {

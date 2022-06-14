@@ -2,22 +2,26 @@ import { fetchUserInfo } from "@/services/user";
 import config from "@/config/config";
 import { get } from "lodash";
 
-const { asyncRoutes } = config;
+const { asyncRoutes, auth } = config;
 
 const init = ({ state, payload }) => {
   const { dispatch } = payload;
-  fetchUserInfo().then((res) => {
-    if (asyncRoutes) {
+  // 登录页不发请求
+  if (!auth || state.token) {
+    fetchUserInfo().then((res) => {
+      if (asyncRoutes) {
+        dispatch({
+          type: "setRoutes",
+          payload: get(res, "result.routes", [])
+        });
+      }
       dispatch({
-        type: "setRoutes",
-        payload: get(res, "result.routes", [])
+        type: "setUserInfo",
+        payload: res.result
       });
-    }
-    dispatch({
-      type: "setUserInfo",
-      payload: res.result
     });
-  });
+  }
+
   return state;
 };
 

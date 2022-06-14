@@ -1,8 +1,10 @@
 import init from "./reducers/init";
 import config from "@/config/config";
 import routes from "@/config/routes";
+import serviceConfig from "@/config/service";
 
 const { asyncRoutes } = config;
+const { tokenStorageKey } = serviceConfig;
 
 export const reducer = (state, action = {}) => {
   const { type, payload = {} } = action;
@@ -17,5 +19,6 @@ export const reducer = (state, action = {}) => {
 
 export const initialState = {
   userInfo: {},
+  token: localStorage.getItem(tokenStorageKey),
   routes: asyncRoutes ? [] : routes
 };
