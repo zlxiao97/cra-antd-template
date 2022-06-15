@@ -1,7 +1,7 @@
 import { Menu as AntdMenu } from "antd";
 import { createMenuItem } from "./utils/createMenuItem";
 import { useModel } from "@/context/model";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@zlxiao97/gsap-fade-enter-leave";
 
 const Menu = () => {
   const navigateTo = useNavigate();
